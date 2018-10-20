@@ -1,0 +1,44 @@
+
+<template name="Roaches">
+  <h1>Welcome to the Roach Motel!</h1>
+  <h3>Here you can see our total number of visitors</h3>
+  {{#if Template.subscriptionsReady}}
+    <p>We've seen {{get_num_roaches}} roaches since 8/27/2018.</p>
+    {{> roachLogEntryCreator}}
+    <br><br>
+    {{> roachLogEntries}}
+    <img src="http://pngimg.com/uploads/roach/roach_PNG12150.png">
+  {{/if}}
+
+</template>
+
+<template name="roachLogEntryCreator">
+  <button class="increaseRoach">Check in!</button>
+  <button class="decreaseRoach">Check out?</button>
+  <br><br>
+  <form>
+    Room:
+    <input class="roomBox" type="text" name="room">
+    <br>Checked in by:
+    <input class="whoBox" type="text" name="checker">
+    <br>Check in Date:
+    <input class="dateBox" type="date" name="date">
+  </form>
+</template>
+
+<template name="roachLogEntries">
+  {{#each allVisitors}}
+    <div style="border: 1px solid black; width: 20%">
+      <p>
+        Room: {{room}} <br>
+        Checked in By: {{who}} <br>
+        Check in date: {{date}}<br>
+      </p>
+    </div>
+    <br>
+  {{/each}}
+</template>
+
+<template name="roachLogEntry">
+</template>
+
